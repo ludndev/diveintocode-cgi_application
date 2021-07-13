@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title><%= pageTitle %> &mdash; CGI APPLICATION</title>
+	<style type="text/css">
+		#tableList {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%; } #tableList td, #tableList th {border: 1px solid #ddd; padding: 8px; } #tableList tr:nth-child(even){background-color: #f2f2f2;} #tableList tr:hover {background-color: #ddd;} #tableList th {padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #04AA6D; color: white; } .center {text-align: center !important;} .uppercase { text-transform: uppercase; }
+	</style>
+</head>
+<body>
+
+	<h1 class="center uppercase"><%= pageTitle %></h1>
+
+	<table id="tableList">
+		<tr class="uppercase center">
+			<th>length</th>
+			<th>weight</th>
+			<th>give_for</th>
+			<th>date</th>
+		</tr>
+
+		<% results.each do |row| %>
+		<tr>
+			<td><%= row["length"] %></td>
+			<td><%= row["weight"] %></td>
+			<td><%= row["give_for"] %></td>
+			<td><%= row["date"] %></td>
+		</tr>
+		<% end %>
+	</table>
+
+</body>
+</html>
