@@ -1,4 +1,7 @@
 # diveintocode-cgi_application
 
-run with ruby app.rb
+Run with
 
+```shell
+ruby app.rb
+```
