@@ -11,21 +11,21 @@ connection.internal_encoding = "UTF-8"
 
 
 filter = cgi['quality']
-pageTitle = "pageTitle"
+pageTitle = "filter crops"
 
-if filter.downcase == 'true'
-	pageTitle = "crops of good quality"
-	query = "SELECT length, weight, give_for, date FROM crops WHERE quality = true;"
-else
-	pageTitle = "crops of bad quality"
-	query = "SELECT length, weight, give_for, date FROM crops WHERE quality = false;"
+def filter_crops(filter)
+	if filter.downcase == 'true'
+		return "SELECT length, weight, give_for, date FROM crops WHERE quality = true;"
+	else
+		return "SELECT length, weight, give_for, date FROM crops WHERE quality = false;"
+	end
 end
 
 
 results = []
 
 begin
-	results = connection.exec(query)
+	results = connection.exec(filter_crops(filter))
 ensure
 	connection.finish
 end
