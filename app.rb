@@ -12,5 +12,6 @@ server = WEBrick::HTTPServer.new({
 
 server.mount('/', WEBrick::HTTPServlet::CGIHandler, 'home.rb')
 server.mount('/crops.cgi', WEBrick::HTTPServlet::CGIHandler, 'crops.rb')
+server.mount('/self_consumption.cgi', WEBrick::HTTPServlet::CGIHandler, 'self_consumption.rb')
 
 server.start
